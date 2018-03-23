@@ -14,3 +14,7 @@ def fibonacci(n):
     [result.append(result[i - 1] + result[i]) for i in range(1, n - 1)]
 
     return result
+
+if __name__ == '__main__':
+    n = int(input())
+    print(list(map(cube, fibonacci(n))))
