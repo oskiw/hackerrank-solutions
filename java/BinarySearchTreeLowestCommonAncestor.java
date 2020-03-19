@@ -1,18 +1,18 @@
 import java.util.Scanner;
 
-class Node {
-    Node left;
-    Node right;
-    int data;
+class BinarySearchTreeLowestCommonAncestor {
 
-    Node(int data) {
-        this.data = data;
-        left = null;
-        right = null;
+    static class Node {
+        Node left;
+        Node right;
+        int data;
+
+        Node(int data) {
+            this.data = data;
+            left = null;
+            right = null;
+        }
     }
-}
-
-class Solution {
 
     public static Node lca(Node root, int v1, int v2) {
         int data = root.data;

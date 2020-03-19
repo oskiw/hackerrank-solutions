@@ -1,8 +1,6 @@
-package com.example.happypumpkin;
-
 import java.util.*;
 
-class Solution {
+class TreesIsThisSBinarySearchTree {
 
     class Node {
         int data;
@@ -50,7 +48,7 @@ class Solution {
     }
 
     public static void main(String []arg) {
-        Solution s = new Solution();
+        TreesIsThisSBinarySearchTree s = new TreesIsThisSBinarySearchTree();
         Node p1 = s.new Node(1, null, null);
         Node p3 = s.new Node(3, null, null);
         Node p2 = s.new Node(2, p1, p3);

@@ -1,69 +1,67 @@
 import java.util.*;
 
-abstract class Node implements Comparable<Node> {
-    public  int frequency; // the frequency of this tree
-    public  char data;
-    public  Node left, right;
-    public Node(int freq) {
-        frequency = freq;
-    }
+public class TreeHuffmanDecoding {
 
-    // compares on the frequency
-    public int compareTo(Node tree) {
-        return frequency - tree.frequency;
-    }
-}
-
-class HuffmanLeaf extends Node {
-
-
-    public HuffmanLeaf(int freq, char val) {
-        super(freq);
-        data = val;
-    }
-}
-
-class HuffmanNode extends Node {
-
-    public HuffmanNode(Node l, Node r) {
-        super(l.frequency + r.frequency);
-        left = l;
-        right = r;
-    }
-
-}
-
-
-class Decoding {
-
-    int deepDecode(String s, int index, Node cur, Node root) {
-
-        if (cur.left == null && cur.right == null) {
-            System.out.print(cur.data);
-            return index;
+    static abstract class Node implements Comparable<Node> {
+        public  int frequency; // the frequency of this tree
+        public  char data;
+        public Node left, right;
+        public Node(int freq) {
+            frequency = freq;
         }
-        int i = index;
 
-        while (i < s.length()) {
-            if (s.charAt(i) == '1') {
-                i = deepDecode(s, i + 1, cur.right, root);
-                cur = root;
-            }
-            else if (s.charAt(i) == '0') {
-                i = deepDecode(s, i + 1, cur.left, root);
-                cur = root;
-            }
+        // compares on the frequency
+        public int compareTo(Node tree) {
+            return frequency - tree.frequency;
         }
-        return s.length();
     }
 
-    void decode(String s, Node root) {
-        deepDecode(s, 0, root, root);
+    static class HuffmanLeaf extends Node {
+
+
+        public HuffmanLeaf(int freq, char val) {
+            super(freq);
+            data = val;
+        }
     }
-}
 
+    static class HuffmanNode extends Node {
 
-public class Solution {
+        public HuffmanNode(Node l, Node r) {
+            super(l.frequency + r.frequency);
+            left = l;
+            right = r;
+        }
+
+    }
+
+    static class Decoding {
+
+        int deepDecode(String s, int index, Node cur, Node root) {
+
+            if (cur.left == null && cur.right == null) {
+                System.out.print(cur.data);
+                return index;
+            }
+            int i = index;
+
+            while (i < s.length()) {
+                if (s.charAt(i) == '1') {
+                    i = deepDecode(s, i + 1, cur.right, root);
+                    cur = root;
+                }
+                else if (s.charAt(i) == '0') {
+                    i = deepDecode(s, i + 1, cur.left, root);
+                    cur = root;
+                }
+            }
+            return s.length();
+        }
+
+        void decode(String s, Node root) {
+            deepDecode(s, 0, root, root);
+        }
+    }
 
     // input is an array of frequencies, indexed by character code
     public static Node buildTree(int[] charFreqs) {

@@ -6,7 +6,7 @@ import java.util.*;
 import java.util.concurrent.*;
 import java.util.regex.*;
 
-public class Solution {
+public class MinimumAbsoluteDifferenceInAnArray {
 
     static int minimumAbsoluteDifference(int[] arr) {
         int min = Integer.MAX_VALUE;

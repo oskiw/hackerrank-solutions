@@ -6,7 +6,7 @@ import java.util.*;
 import java.util.concurrent.*;
 import java.util.regex.*;
 
-public class Solution {
+public class TimeComplexityPrimality {
 
     static String primality(int n) {
         if (n < 2) return "Not prime";

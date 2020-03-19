@@ -6,7 +6,7 @@ import java.util.*;
 import java.util.concurrent.*;
 import java.util.regex.*;
 
-public class Solution {
+public class MarkAndToys {
 
     static int maximumToys(int[] prices, int k) {
         Arrays.sort(prices);

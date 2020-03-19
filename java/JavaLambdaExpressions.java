@@ -41,7 +41,7 @@ class MyMath {
         };
     }
 }
-public class Solution {
+public class JavaLambdaExpressions {
 
     public static void main(String[] args) throws IOException {
         MyMath ob = new MyMath();

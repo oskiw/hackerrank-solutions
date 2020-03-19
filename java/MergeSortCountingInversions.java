@@ -81,15 +81,28 @@ public class MergeSortCountingInversions {
     public static void main(String[] args) throws IOException {
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
 
-        int n = scanner.nextInt();
+        int t = scanner.nextInt();
         scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
-        String s = scanner.nextLine();
+        for (int tItr = 0; tItr < t; tItr++) {
+            int n = scanner.nextInt();
+            scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
-        int result = countingValleys(n, s);
+            int[] arr = new int[n];
 
-        bufferedWriter.write(String.valueOf(result));
-        bufferedWriter.newLine();
+            String[] arrItems = scanner.nextLine().split(" ");
+            scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+
+            for (int i = 0; i < n; i++) {
+                int arrItem = Integer.parseInt(arrItems[i]);
+                arr[i] = arrItem;
+            }
+
+            long result = countInversions(arr);
+
+            bufferedWriter.write(String.valueOf(result));
+            bufferedWriter.newLine();
+        }
 
         bufferedWriter.close();
 
